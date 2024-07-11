@@ -6,7 +6,7 @@ type ButtonProps = {
 
 export const Button = ({ onClick, disabled, children }: ButtonProps) => {
   return (
-    <button onClick={onClick} disabled={disabled}>
+    <button className="border-2" onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

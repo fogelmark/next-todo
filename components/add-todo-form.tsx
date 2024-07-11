@@ -8,22 +8,23 @@ export function AddTodoForm() {
 
   return (
     <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          addTodo(todoContent)
-          setTodoContent("")
-        }}
-      >
-        <input
-          value={todoContent}
-          onChange={(e) => setTodoContent(e.target.value)}
-          placeholder="Add a todo..."
-          className="rounded border-2"
-          type="text"
-          required
-        />
+      className="flex flex-col gap-4"
+      onSubmit={(e) => {
+        e.preventDefault()
+        addTodo(todoContent)
+        setTodoContent("")
+      }}
+    >
+      <input
+        value={todoContent}
+        onChange={(e) => setTodoContent(e.target.value)}
+        placeholder="Add a todo..."
+        className="rounded border-2"
+        type="text"
+        required
+      />
         <Button children="Add to list" />
         <Button children="Clear list" onClick={clearList} />
-      </form>
+    </form>
   )
 }

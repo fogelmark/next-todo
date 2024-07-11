@@ -9,6 +9,8 @@ type TodosContextProviderProps = {
 
 type TodosContextType = {
   todos: Todo[]
+  isLoading: boolean
+  totalCount: number
   addTodo: (content: string) => void
   deleteTodo: (id: number) => void
   toggleTodo: (id: number) => void
@@ -19,8 +21,10 @@ export const TodosContext = createContext<TodosContextType | null>(null)
 
 export function TodosContextProvider({ children }: TodosContextProviderProps) {
   const [todos, setTodos] = useState<Todo[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const [isLoading, setIsLoading] = useState(false)
+  const totalCount = todos.length
+  const completedCount = todos.filter((todo) => todo.completed).length
 
   const addTodo = (content: string) => {
     localStorage.setItem(
@@ -71,6 +75,8 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
 
   const value = {
     todos,
+    isLoading,
+    totalCount,
     addTodo,
     deleteTodo,
     toggleTodo,
