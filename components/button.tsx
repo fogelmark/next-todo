@@ -1,3 +1,5 @@
+import "@/styles/button.css"
+
 type ButtonProps = {
   onClick?: () => void;
   disabled?: boolean;
@@ -6,7 +8,7 @@ type ButtonProps = {
 
 export const Button = ({ onClick, disabled, children }: ButtonProps) => {
   return (
-    <button className="border-2" onClick={onClick} disabled={disabled}>
+    <button className="bg-green-200 rounded-lg py-2 button-bezel" onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

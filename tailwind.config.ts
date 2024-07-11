@@ -13,6 +13,22 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'sherpa-blue': {
+        '50': '#ebfffc',
+        '100': '#cdfffb',
+        '200': '#a1fffb',
+        '300': '#60fffb',
+        '400': '#18f8f7',
+        '500': '#00dcde',
+        '600': '#00b0ba',
+        '700': '#088c96',
+        '800': '#106f7a',
+        '900': '#125c67',
+        '950': '#064853',
+    },
+    
+      }
     },
   },
   plugins: [],

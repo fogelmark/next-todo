@@ -19,7 +19,7 @@ export function AddTodoForm() {
         value={todoContent}
         onChange={(e) => setTodoContent(e.target.value)}
         placeholder="Add a todo..."
-        className="rounded border-2"
+        className="rounded py-2 px-2 text-black"
         type="text"
         required
       />

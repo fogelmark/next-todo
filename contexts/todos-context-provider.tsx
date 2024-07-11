@@ -10,7 +10,6 @@ type TodosContextProviderProps = {
 type TodosContextType = {
   todos: Todo[]
   isLoading: boolean
-  totalCount: number
   addTodo: (content: string) => void
   deleteTodo: (id: number) => void
   toggleTodo: (id: number) => void
@@ -22,9 +21,6 @@ export const TodosContext = createContext<TodosContextType | null>(null)
 export function TodosContextProvider({ children }: TodosContextProviderProps) {
   const [todos, setTodos] = useState<Todo[]>([])
   const [isLoading, setIsLoading] = useState(true)
-
-  const totalCount = todos.length
-  const completedCount = todos.filter((todo) => todo.completed).length
 
   const addTodo = (content: string) => {
     localStorage.setItem(
@@ -45,18 +41,22 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
   }
 
   const deleteTodo = (id: number) => {
-    const storedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
-    const updatedTodos = storedTodos.filter((todo: { id: number }) => todo.id !== id);
-    localStorage.setItem('todos', JSON.stringify(updatedTodos));
-    setTodos(updatedTodos);
+    const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]")
+    const updatedTodos = storedTodos.filter(
+      (todo: { id: number }) => todo.id !== id,
+    )
+    localStorage.setItem("todos", JSON.stringify(updatedTodos))
+    setTodos(updatedTodos)
   }
 
   const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
+    const storedTodos = JSON.parse(localStorage.getItem("todos") || "[]")
+    const updatedTodos = storedTodos.map(
+      (todo: { id: number; completed: boolean }) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo,
-      ),
     )
+    localStorage.setItem("todos", JSON.stringify(updatedTodos))
+    setTodos(updatedTodos)
   }
 
   const clearList = () => {
@@ -76,7 +76,6 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
   const value = {
     todos,
     isLoading,
-    totalCount,
     addTodo,
     deleteTodo,
     toggleTodo,
