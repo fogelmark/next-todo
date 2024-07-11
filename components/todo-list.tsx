@@ -1,7 +1,8 @@
 import { useTodosContext } from "@/lib/hooks"
+import { DeleteButton } from "@/components"
 
 export function TodoList() {
-  const { todos, deleteTodo, toggleTodo } = useTodosContext()
+  const { todos, toggleTodo } = useTodosContext()
 
   return (
     <section>
@@ -9,7 +10,7 @@ export function TodoList() {
         {todos.map((todo) => (
           <li key={todo.id}>
             <span className={`${todo.completed ? "line-through" : ""}`} onClick={() => toggleTodo(todo.id)}>{todo.content}</span>
-            <button onClick={() => deleteTodo(todo.id)}>delete</button>
+            <DeleteButton id={todo.id} />
           </li>
         ))}
       </ul>

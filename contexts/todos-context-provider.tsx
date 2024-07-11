@@ -1,7 +1,6 @@
 "use client"
 
 import { Todo } from "@/lib/types"
-import { todo } from "node:test"
 import { createContext, useState } from "react"
 
 type TodosContextProviderProps = {
@@ -13,6 +12,7 @@ type TodosContextType = {
   addTodo: (content: string) => void
   deleteTodo: (id: number) => void
   toggleTodo: (id: number) => void
+  clearList: () => void
 }
 
 export const TodosContext = createContext<TodosContextType | null>(null)
@@ -38,21 +38,22 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
   const toggleTodo = (id: number) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
       ),
     )
   }
 
-  return (
-    <TodosContext.Provider
-      value={{
-        todos,
-        addTodo,
-        deleteTodo,
-        toggleTodo
-      }}
-    >
-      {children}
-    </TodosContext.Provider>
-  )
+  const clearList = () => {
+    setTodos([])
+  }
+
+  const value = {
+    todos,
+    addTodo,
+    deleteTodo,
+    toggleTodo,
+    clearList,
+  }
+
+  return <TodosContext.Provider value={value}>{children}</TodosContext.Provider>
 }

@@ -1,8 +1,9 @@
 import { useTodosContext } from "@/lib/hooks"
 import { useState } from "react"
+import { Button } from "@/components"
 
 export function AddTodoForm() {
-  const { addTodo } = useTodosContext()
+  const { addTodo, clearList } = useTodosContext()
   const [todoContent, setTodoContent] = useState("")
 
   return (
@@ -21,7 +22,8 @@ export function AddTodoForm() {
           type="text"
           required
         />
-        <button className="rounded border-2">Add</button>
+        <Button children="Add to list" />
+        <Button children="Clear list" onClick={clearList} />
       </form>
   )
 }
