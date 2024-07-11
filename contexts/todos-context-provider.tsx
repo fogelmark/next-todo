@@ -1,7 +1,7 @@
 "use client"
 
 import { Todo } from "@/lib/types"
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 type TodosContextProviderProps = {
   children: React.ReactNode
@@ -20,7 +20,16 @@ export const TodosContext = createContext<TodosContextType | null>(null)
 export function TodosContextProvider({ children }: TodosContextProviderProps) {
   const [todos, setTodos] = useState<Todo[]>([])
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const addTodo = (content: string) => {
+    localStorage.setItem(
+      "todos",
+      JSON.stringify([
+        ...todos,
+        { id: todos.length + 1, content, completed: false },
+      ]),
+    )
     setTodos([
       ...todos,
       {
@@ -32,7 +41,10 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
   }
 
   const deleteTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id))
+    const storedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+    const updatedTodos = storedTodos.filter((todo: { id: number }) => todo.id !== id);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
   }
 
   const toggleTodo = (id: number) => {
@@ -45,7 +57,17 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
 
   const clearList = () => {
     setTodos([])
+    localStorage.removeItem("todos")
   }
+
+  useEffect(() => {
+    setIsLoading(true)
+    const data = localStorage.getItem("todos")
+    if (data) {
+      setTodos(JSON.parse(data))
+    }
+    setIsLoading(false)
+  }, [])
 
   const value = {
     todos,
