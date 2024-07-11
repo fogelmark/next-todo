@@ -1,13 +1,16 @@
-import useTodosContext from "@/contexts/todos-context-provider"
+import { useTodosContext } from "@/lib/hooks"
 
 export function TodoList() {
-  const { todos } = useTodosContext()
+  const { todos, deleteTodo } = useTodosContext()
 
   return (
     <section>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li key={todo.id}>
+            <span>{todo.content}</span>
+            <button onClick={() => deleteTodo(todo.id)}>delete</button>
+          </li>
         ))}
       </ul>
     </section>

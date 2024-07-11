@@ -1,12 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState } from "react";
-
-type Todo = {
-  id: number;
-  content: string;
-  completed: boolean;
-}
+import { Todo } from "@/lib/types";
+import { createContext, useState } from "react";
 
 type TodosContextProviderProps = {
   children: React.ReactNode
@@ -14,22 +9,11 @@ type TodosContextProviderProps = {
 
 type TodosContextType = {
   todos: Todo[];
-  addTodo: (content: string) => void
+  addTodo: (content: string) => void;
+  deleteTodo: (id: number) => void;
 }
 
 export const TodosContext = createContext<TodosContextType | null>(null)
-
-export default function useTodosContext() {
-  const context = useContext(TodosContext)
-
-  if (!context) {
-    throw new Error(
-      "TodosContext must be used within a TodosContextProvider component"
-    );
-  }
-
-  return context
-}
 
 export function TodosContextProvider({ children }: TodosContextProviderProps) {
 
@@ -46,10 +30,15 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
     ])
   }
 
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
+
   return (
     <TodosContext.Provider value={{
       todos,
-      addTodo
+      addTodo,
+      deleteTodo
     }}>
       {children}
     </TodosContext.Provider>

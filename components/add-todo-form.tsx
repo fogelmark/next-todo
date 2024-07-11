@@ -1,5 +1,5 @@
+import { useTodosContext } from "@/lib/hooks"
 import { useState } from "react"
-import useTodosContext from "@/contexts/todos-context-provider"
 
 export function AddTodoForm() {
   const { addTodo } = useTodosContext()
@@ -21,7 +21,7 @@ export function AddTodoForm() {
           type="text"
           required
         />
-        <button className="rounded border-2">add</button>
+        <button className="rounded border-2">Add</button>
       </form>
   )
 }
