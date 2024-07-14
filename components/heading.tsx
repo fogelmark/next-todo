@@ -1,7 +1,14 @@
-import React from 'react'
+import { useTodosContext } from "@/lib/hooks"
 
 export function Heading() {
+  const { completedTodos, totalCount } = useTodosContext()
+
   return (
-    <div>Heading</div>
+    <section className="flex justify-between">
+      <h1 className="text-3xl font-bold">Tasks</h1>
+      <span className="text-acapulco-100">
+        {totalCount === 0 ? null : `${completedTodos}/${totalCount}`}
+      </span>
+    </section>
   )
 }
