@@ -8,7 +8,7 @@ type ButtonProps = {
 
 export const Button = ({ onClick, disabled, children }: ButtonProps) => {
   return (
-    <button className="bg-green-200 rounded-lg py-2 button-bezel" onClick={onClick} disabled={disabled}>
+    <button className="bg-green-200 rounded-lg py-2 button-bezel w-full drop-shadow-md" onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

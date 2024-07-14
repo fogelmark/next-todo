@@ -14,7 +14,7 @@ export function TodoList() {
         {todos.map((todo) => (
           <li key={todo.id} className="flex justify-between">
             <span
-              className={`${todo.completed ? "line-through" : ""} cursor-pointer select-none w-full`}
+              className={`${todo.completed ? "line-through text-acapulco-800" : ""} cursor-pointer select-none w-full drop-shadow-md`}
               onClick={() => toggleTodo(todo.id)}
             >
               {todo.content}

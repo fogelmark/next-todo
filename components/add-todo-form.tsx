@@ -23,8 +23,10 @@ export function AddTodoForm() {
         type="text"
         required
       />
+      <section className="flex justify-between gap-2">
         <Button children="Add to list" />
         <Button children="Clear list" onClick={clearList} />
+      </section>
     </form>
   )
 }
