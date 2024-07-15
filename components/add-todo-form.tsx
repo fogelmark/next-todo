@@ -31,7 +31,7 @@ export function AddTodoForm() {
           setTodoContent(e.target.value)
         }}
         placeholder="Add a task..."
-        className="rounded px-2 py-2 text-black"
+        className="rounded px-2 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         type="text"
       />
       {error && <p className="text-red-800">{error}</p>}

@@ -10,7 +10,7 @@ export function DeleteButton({ id }: { id: number }) {
         e.stopPropagation()
         deleteTodo(id)
       }}
-      className="cursor-pointer"
+      className="cursor-pointer hover:text-acapulco-200"
       size={20}
     />
   )
