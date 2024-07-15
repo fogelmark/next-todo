@@ -24,7 +24,7 @@ export function AddTodoForm() {
   }
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form data-testid="add-todo-form" className="flex flex-col gap-4" onSubmit={handleSubmit}>
       <input
         value={todoContent}
         onChange={(e) => {

@@ -7,7 +7,7 @@ export function TodoList() {
   const { todos, isLoading, toggleTodo } = useTodosContext()
 
   return (
-    <section className="w-full">
+    <section data-testid="todo-list" className="w-full">
       <ul className="flex flex-col gap-2">
         {isLoading && <SkeletonLoader />}
         {todos.length === 0 && !isLoading && <li>No todos yet!</li>}
