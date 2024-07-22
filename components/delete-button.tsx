@@ -1,16 +1,22 @@
 import { useTodosContext } from "@/lib/hooks"
-import { IoIosRemoveCircle, IoIosRemoveCircleOutline } from "react-icons/io"
+import { MdDelete } from "react-icons/md";
 
-export function DeleteButton({ id }: { id: number }) {
+type Props = {
+  id: number;
+  completed: boolean;
+}
+
+export function DeleteButton(props: Props) {
   const { deleteTodo } = useTodosContext()
+  const { id, completed } = props
 
   return (
-    <IoIosRemoveCircleOutline
+    <MdDelete
       onClick={(e) => {
         e.stopPropagation()
         deleteTodo(id)
       }}
-      className="cursor-pointer hover:text-acapulco-200"
+      className={`${completed ? "text-acapulco-800" : "hover:text-acapulco-200"} cursor-pointer my-auto`}
       size={20}
     />
   )

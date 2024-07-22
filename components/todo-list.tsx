@@ -12,14 +12,17 @@ export function TodoList() {
         {isLoading && <SkeletonLoader />}
         {todos.length === 0 && !isLoading && <li>No todos yet!</li>}
         {todos.map((todo) => (
-          <li key={todo.id} className="flex justify-between">
+          <li
+            key={todo.id}
+            className="flex justify-between px-2 shadow-[0px_4px_2px_-2px_#00000015]"
+          >
             <span
-              className={`${todo.completed ? "text-acapulco-800 line-through hover:text-acapulco-800" : "hover:text-acapulco-200"} w-full cursor-pointer select-none drop-shadow-md`}
+              className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
               onClick={() => toggleTodo(todo.id)}
             >
               {todo.content}
             </span>
-            <DeleteButton id={todo.id} />
+            <DeleteButton id={todo.id} completed={todo.completed} />
           </li>
         ))}
       </ul>

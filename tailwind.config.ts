@@ -28,6 +28,10 @@ const config: Config = {
           "950": "#10231f",
         },
       },
+      boxShadow: {
+        "outline-acapulco": "0 0 0 3px var(--colors-acapulco-400)",
+        "bottom": "0px 4px 2px -1px rgba(212,212,212,1)"
+      },
     },
   },
   plugins: [],

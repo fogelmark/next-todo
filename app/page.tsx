@@ -8,7 +8,7 @@ import { TodosContextProvider } from "@/contexts/todos-context-provider"
 export default function Home() {
   return (
     <main data-testid="main" className="bg-acapulco-700 text-acapulco-50 flex min-h-screen flex-col items-center p-4">
-      <section className="bg-acapulco-400 mx-auto flex w-full flex-col gap-6 rounded-lg p-4 shadow-lg md:w-1/3">
+      <section className="bg-acapulco-400 mx-auto flex w-full flex-col gap-6 rounded-lg p-4 shadow-lg max-w-[500px] md:max-w-[500px]">
       <TodosContextProvider>
         <Heading />
         <AddTodoForm />
