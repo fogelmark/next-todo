@@ -14,7 +14,7 @@ export function TodoList() {
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="flex justify-between px-2 shadow-[0px_4px_2px_-2px_#00000015]"
+            className="flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015]"
           >
             <span
               className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
