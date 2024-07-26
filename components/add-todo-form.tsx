@@ -6,7 +6,7 @@ import { z } from "zod"
 const todoSchema = z.string().min(1, "Enter a valid task!")
 
 export function AddTodoForm() {
-  const { totalCount ,addTodo, clearList } = useTodosContext()
+  const { addTodo, clearList } = useTodosContext()
   const [todoContent, setTodoContent] = useState("")
   const [error, setError] = useState("")
 
@@ -23,21 +23,34 @@ export function AddTodoForm() {
     setTodoContent("")
   }
 
+  const handleClearList = () => {
+    clearList()
+    setError("")
+  }
+
   return (
-    <form data-testid="add-todo-form" className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form
+      data-testid="add-todo-form"
+      className="flex flex-col gap-4"
+      onSubmit={handleSubmit}
+    >
       <input
         value={todoContent}
         onChange={(e) => {
           setTodoContent(e.target.value)
         }}
         placeholder="Add a task..."
-        className="rounded px-2 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className="rounded px-2 py-2 text-black focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
       />
-      {error && <p className={`text-red-700 ${error ? "animate-shake" : ""}`}>{error}</p>}
+      {error && (
+        <p className={`text-red-700 ${error ? "animate-shake" : ""}`}>
+          {error}
+        </p>
+      )}
       <section className="flex justify-between gap-2">
         <Button children="Add to list" />
-        <Button children="Clear list" onClick={clearList} />
+        <Button children="Clear list" onClick={handleClearList} />
       </section>
     </form>
   )
