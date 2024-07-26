@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react"
 import { Button } from "@/components"
 import { z } from "zod"
 
-const todoSchema = z.string().min(1, "Todo content cannot be empty")
+const todoSchema = z.string().min(1, "Enter a valid task!")
 
 export function AddTodoForm() {
   const { addTodo, clearList } = useTodosContext()
@@ -34,7 +34,7 @@ export function AddTodoForm() {
         className="rounded px-2 py-2 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         type="text"
       />
-      {error && <p className="text-red-700">{error}</p>}
+      {error && <p className={`text-red-700 ${error ? "animate-shake" : ""}`}>{error}</p>}
       <section className="flex justify-between gap-2">
         <Button children="Add to list" />
         <Button children="Clear list" onClick={clearList} />

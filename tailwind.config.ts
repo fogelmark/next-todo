@@ -30,7 +30,17 @@ const config: Config = {
       },
       boxShadow: {
         "outline-acapulco": "0 0 0 3px var(--colors-acapulco-400)",
-        "bottom": "0px 4px 2px -1px rgba(212,212,212,1)"
+        bottom: "0px 4px 2px -1px rgba(212,212,212,1)",
+      },
+      keyframes: {
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "20%, 60%": { transform: "translateX(-5px)" },
+          "40%, 80%": { transform: "translateX(5px)" },
+        },
+      },
+      animation: {
+        shake: "shake .5s ease-in-out",
       },
     },
   },
