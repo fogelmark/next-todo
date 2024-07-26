@@ -16,8 +16,8 @@ export function DeleteButton(props: Props) {
         e.stopPropagation()
         deleteTodo(id)
       }}
-      className={`${completed ? "text-acapulco-800" : "hover:text-acapulco-200"} cursor-pointer my-auto`}
-      size={20}
+      className="cursor-pointer my-auto"
+      size={25}
     />
   )
 }
