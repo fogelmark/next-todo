@@ -12,6 +12,10 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "button-bezel":
+          "linear-gradient(rgb(68, 136, 118) 0%, rgb(52, 109, 95) 100%)",
+        "button-bezel-hover":
+          "linear-gradient(rgb(52, 109, 95) 0%, rgb(45, 88, 78) 100%)",
       },
       colors: {
         acapulco: {
@@ -30,7 +34,8 @@ const config: Config = {
       },
       boxShadow: {
         "outline-acapulco": "0 0 0 3px var(--colors-acapulco-400)",
-        bottom: "0px 4px 2px -1px rgba(212,212,212,1)",
+        "button-bezel":
+          "inset 0 1px 0 0 hsla(0, 0%, 100%, .3), inset 0 -1px 0 0 rgba(0, 0, 0, .25), 0 2px 6px 0 rgba(0, 0, 0, .1)",
       },
       keyframes: {
         shake: {

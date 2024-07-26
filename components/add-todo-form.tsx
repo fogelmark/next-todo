@@ -6,7 +6,7 @@ import { z } from "zod"
 const todoSchema = z.string().min(1, "Enter a valid task!")
 
 export function AddTodoForm() {
-  const { addTodo, clearList } = useTodosContext()
+  const { totalCount ,addTodo, clearList } = useTodosContext()
   const [todoContent, setTodoContent] = useState("")
   const [error, setError] = useState("")
 
