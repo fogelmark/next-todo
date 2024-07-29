@@ -3,12 +3,11 @@ import { MdDelete } from "react-icons/md";
 
 type Props = {
   id: number;
-  completed: boolean;
 }
 
 export function DeleteButton(props: Props) {
   const { deleteTodo } = useTodosContext()
-  const { id, completed } = props
+  const { id } = props
 
   return (
     <MdDelete

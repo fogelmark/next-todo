@@ -51,6 +51,7 @@ export function TodosContextProvider({ children }: TodosContextProviderProps) {
       (todo: { id: number }) => todo.id !== id,
     )
     localStorage.setItem("todos", JSON.stringify(updatedTodos))
+    console.log(updatedTodos);
     setTodos(updatedTodos)
   }
 

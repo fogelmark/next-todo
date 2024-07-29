@@ -43,14 +43,14 @@ const config: Config = {
           "20%, 60%": { transform: "translateX(-5px)" },
           "40%, 80%": { transform: "translateX(5px)" },
         },
-        fadeIn: {
-          '0%': { opacity: "0" },
+        fadeOut: {
           '100%': { opacity: "1" },
+          '0%': { opacity: "0" },
         },
       },
       animation: {
         shake: "shake .5s ease-in-out",
-        fadeIn: 'fadeIn 0.5s ease-in-out',
+        fadeOut: 'fadeOut 0.5s ease-in-out',
       },
     },
   },

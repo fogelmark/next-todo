@@ -1,43 +1,41 @@
 "use client"
 
-import { useTodosContext } from "@/lib/hooks"
-import { DeleteButton } from "@/components"
-import { SkeletonLoader } from "@/components/skeleton-loader"
 import "react-loading-skeleton/dist/skeleton.css"
-import { useEffect, useState } from "react"
+import { DeleteButton } from "@/components"
+import { AnimatePresence, motion } from "framer-motion"
+import { SkeletonLoader } from "@/components/skeleton-loader"
+import { useState } from "react"
+import { useTodosContext } from "@/lib/hooks"
 
 export function TodoList() {
   const { todos, isLoading, toggleTodo } = useTodosContext()
-  const [renderedTodoIds, setRenderedTodoIds] = useState(new Set())
-
-  useEffect(() => {
-    const newTodoIds = todos.map((todo) => todo.id)
-    setRenderedTodoIds((prevIds) => {
-      const updatedIds = new Set(prevIds)
-      newTodoIds.forEach((id) => updatedIds.add(id))
-      return updatedIds
-    })
-  }, [todos])
+  const [isVisible, setIsVisible] = useState(false)
 
   return (
     <section data-testid="todo-list" className="w-full">
       <ul className="flex flex-col gap-2">
         {isLoading && <SkeletonLoader />}
         {todos.length === 0 && !isLoading && <li>No todos yet!</li>}
+        <AnimatePresence>
         {todos.map((todo) => (
-          <li
-            key={todo.id}
-            className={`flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015] ${renderedTodoIds.has(todo.id) ? "animate-fadeIn" : ""}`}
-          >
-            <span
-              className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
-              onClick={() => toggleTodo(todo.id)}
+            <motion.li
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              key={todo.id}
+              className="flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015]"
             >
-              {todo.content}
-            </span>
-            <DeleteButton id={todo.id} completed={todo.completed} />
-          </li>
+              <span
+                className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
+                onClick={() => toggleTodo(todo.id)}
+              >
+                {todo.content}
+              </span>
+              <DeleteButton id={todo.id} />
+            </motion.li>
         ))}
+      </AnimatePresence>
       </ul>
     </section>
   )
