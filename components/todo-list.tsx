@@ -17,11 +17,10 @@ export function TodoList() {
         {isLoading && <SkeletonLoader />}
         {todos.length === 0 && !isLoading && <li>No todos yet!</li>}
         <AnimatePresence>
-        {todos.map((todo) => (
+          {todos.map((todo) => (
             <motion.li
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
               key={todo.id}
               className="flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015]"
@@ -34,8 +33,8 @@ export function TodoList() {
               </span>
               <DeleteButton id={todo.id} />
             </motion.li>
-        ))}
-      </AnimatePresence>
+          ))}
+        </AnimatePresence>
       </ul>
     </section>
   )
