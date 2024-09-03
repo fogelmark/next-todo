@@ -1,13 +1,15 @@
 import { useTodosContext } from "@/lib/hooks"
 import { MdDelete } from "react-icons/md"
+import { cn } from "@/lib/utils"
 
 type Props = {
   id: number
+  className?: string
 }
 
 export function DeleteButton(props: Props) {
   const { deleteTodo } = useTodosContext()
-  const { id } = props
+  const { id, className } = props
 
   return (
     <MdDelete
@@ -15,7 +17,7 @@ export function DeleteButton(props: Props) {
         e.stopPropagation()
         deleteTodo(id)
       }}
-      className="my-auto cursor-pointer"
+      className={cn("my-auto", className)}
       size={25}
     />
   )

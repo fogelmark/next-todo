@@ -6,7 +6,7 @@ export function SkeletonLoader() {
       {Array.from({ length: 3 }).map((_, index) => (
         <li className="mb-2 flex items-center justify-between" key={index}>
           <span
-            className={`${skeletonWidth[index]} h-5 animate-pulse rounded bg-acapulco-50 opacity-50`}
+            className={`${skeletonWidth[index]} h-6 animate-pulse rounded bg-acapulco-50 opacity-50`}
             role="presentation"
             aria-hidden="true"
           ></span>

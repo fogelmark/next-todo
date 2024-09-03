@@ -1,7 +1,7 @@
 "use client"
 
 import "react-loading-skeleton/dist/skeleton.css"
-import { DeleteButton } from "@/components"
+import { DeleteButton, PlaceholderTasks } from "@/components"
 import { AnimatePresence, motion } from "framer-motion"
 import { SkeletonLoader } from "@/components/skeleton-loader"
 import { useTodosContext } from "@/lib/hooks"
@@ -13,7 +13,7 @@ export function TodoList() {
     <section data-testid="todo-list" className="w-full">
       <ul className="flex flex-col gap-2">
         {isLoading && <SkeletonLoader />}
-        {todos.length === 0 && !isLoading}
+        {todos.length === 0 && !isLoading && <PlaceholderTasks />}
         <AnimatePresence>
           {todos.map((todo) => (
             <motion.li
@@ -29,7 +29,7 @@ export function TodoList() {
               >
                 {todo.content}
               </span>
-              <DeleteButton id={todo.id} />
+              <DeleteButton id={todo.id} className="cursor-pointer" />
             </motion.li>
           ))}
         </AnimatePresence>
