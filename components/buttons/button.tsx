@@ -4,6 +4,7 @@ import "@/styles/button.css"
 type ButtonProps = {
   onClick?: () => void
   children: React.ReactNode
+  className?: string
 }
 
 export const Button = ({ onClick, children }: ButtonProps) => {
@@ -23,5 +24,6 @@ export const Button = ({ onClick, children }: ButtonProps) => {
 
 const classes = {
   disabled: "disabled:hover:bg-button-bezel disabled:opacity-50",
-  enabled: "bg-button-bezel hover:bg-button-bezel-hover shadow-button-bezel w-full rounded-lg py-2 drop-shadow-md",
+  enabled:
+    "bg-button-bezel hover:bg-button-bezel-hover shadow-button-bezel w-full rounded-lg py-2 drop-shadow-md",
 }
