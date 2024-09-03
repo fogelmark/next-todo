@@ -6,7 +6,7 @@ export function Heading() {
 
   return (
     <section data-testid="heading" className="flex items-center justify-between">
-      <h1 className={`${archivo_black.className} text-5xl -tracking-wide`}>
+      <h1 className={`${archivo_black.className} text-3xl md:text-5xl -tracking-wide`}>
         taskmanager.
       </h1>
       <span className="text-acapulco-100">
