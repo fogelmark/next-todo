@@ -4,6 +4,7 @@ import "@/styles/button.css"
 type ButtonProps = {
   onClick?: () => void
   children: React.ReactNode
+  className?: string
 }
 
 export const Button = ({ onClick, children }: ButtonProps) => {
