@@ -1,7 +1,6 @@
 import "@/styles/loader.css"
 
 export function SkeletonLoader() {
-
   return (
     <>
       {Array.from({ length: 4 }).map((_, index) => (
