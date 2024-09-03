@@ -17,11 +17,11 @@ export function TodoList() {
         <AnimatePresence>
           {todos.map((todo) => (
             <motion.li
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              key={todo.id}
-              className="flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015]"
+            key={todo.id}
+            className="flex justify-between rounded-sm p-2 shadow-[0px_4px_2px_-2px_#00000015]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             >
               <span
                 className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
