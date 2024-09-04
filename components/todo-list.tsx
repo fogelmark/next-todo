@@ -13,7 +13,8 @@ export function TodoList() {
     <section data-testid="todo-list" className="w-full">
       <ul className="flex flex-col gap-2">
         {isLoading && <SkeletonLoader />}
-        {todos.length === 0 && !isLoading && <PlaceholderTasks />}
+        {/* {todos.length === 0 && !isLoading && <PlaceholderTasks />} */}
+        {todos.length === 0 && !isLoading}
         <AnimatePresence>
           {todos.map((todo) => (
             <motion.li
@@ -24,7 +25,7 @@ export function TodoList() {
             transition={{ duration: 0.5 }}
             >
               <span
-                className={`${todo.completed ? "text-acapulco-800 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
+                className={`${todo.completed ? "text-acapulco-950 line-through" : ""} w-full cursor-pointer select-none drop-shadow-md`}
                 onClick={() => toggleTodo(todo.id)}
               >
                 {todo.content}

@@ -44,7 +44,7 @@ export function AddTodoForm() {
         type="text"
       />
       {error && (
-        <p className={`text-red-700 ${error ? "animate-shake" : ""}`}>
+        <p className={`text-red-600 ${error ? "animate-shake" : ""}`}>
           {error}
         </p>
       )}

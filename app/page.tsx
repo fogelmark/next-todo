@@ -20,7 +20,7 @@ export default function Home() {
 }
 
 const classes = {
-  main: "bg-acapulco-700 text-acapulco-50 flex min-h-screen flex-col items-center p-4",
+  main: "bg-acapulco-900 text-acapulco-50 flex min-h-screen flex-col items-center p-4",
   section:
-    "bg-acapulco-400 mx-auto flex w-full flex-col gap-6 rounded-lg p-6 shadow-lg max-w-[500px] md:max-w-[500px]",
+    "bg-acapulco-700 mx-auto flex w-full flex-col gap-6 rounded-lg p-6 shadow-lg max-w-[500px] md:max-w-[500px]",
 }
