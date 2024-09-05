@@ -1,8 +1,8 @@
 {
   "name": "Task Manager",
   "short_name": "taskmanager",
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#243d37",
+  "background_color": "#243d37",
   "display": "standalone",
   "orientation": "landscape",
   "scope": "/",
