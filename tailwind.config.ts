@@ -49,7 +49,7 @@ const config: Config = {
         },
       },
       animation: {
-        shake: "shake .5s ease-in-out",
+        shake: "shake .35s ease-in-out",
         fadeOut: 'fadeOut 0.5s ease-in-out',
       },
     },
