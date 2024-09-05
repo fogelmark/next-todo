@@ -13,8 +13,7 @@ export function TodoList() {
     <section data-testid="todo-list" className="w-full">
       <ul className="flex flex-col gap-2">
         {isLoading && <SkeletonLoader />}
-        {/* {todos.length === 0 && !isLoading && <PlaceholderTasks />} */}
-        {todos.length === 0 && !isLoading}
+        {todos.length === 0 && !isLoading && <PlaceholderTasks />}
         <AnimatePresence>
           {todos.map((todo) => (
             <motion.li
