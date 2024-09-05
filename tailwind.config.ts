@@ -13,9 +13,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "button-bezel":
-          "linear-gradient(rgb(68, 136, 118) 0%, rgb(52, 109, 95) 100%)",
+          "linear-gradient(180deg, rgb(68, 136, 118) 0%, rgb(52, 109, 95) 100%)",
         "button-bezel-hover":
-          "linear-gradient(rgb(52, 109, 95) 0%, rgb(45, 88, 78) 100%)",
+          "linear-gradient(180deg, rgb(52, 109, 95) 0%, rgb(45, 88, 78) 100%)",
+        "button-bezel-active":
+          "linear-gradient(180deg, rgb(48, 100, 90) 0%, rgba(40, 80, 70) 100%)",
       },
       colors: {
         acapulco: {

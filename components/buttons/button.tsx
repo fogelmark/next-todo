@@ -1,5 +1,4 @@
 import { useTodosContext } from "@/lib/hooks"
-import "@/styles/button.css"
 
 type ButtonProps = {
   onClick?: () => void
@@ -25,5 +24,5 @@ export const Button = ({ onClick, children }: ButtonProps) => {
 const classes = {
   disabled: "disabled:hover:bg-button-bezel disabled:opacity-50",
   enabled:
-    "bg-button-bezel hover:bg-button-bezel-hover shadow-button-bezel w-full rounded-lg py-2 drop-shadow-md",
+    "bg-button-bezel md:hover:bg-button-bezel-hover md:active:bg-button-bezel-active active:bg-button-bezel-active focus:outline-none shadow-button-bezel w-full rounded-lg py-2 drop-shadow-md",
 }
